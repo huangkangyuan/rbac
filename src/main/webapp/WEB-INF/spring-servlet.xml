@@ -6,11 +6,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--用于激活那些已经在spring容器里注册过的bean-->
-    <context:annotation-config />
+    <context:annotation-config/>
     <!--<context:component-scan base-package="">-->
     <!-- 启动包扫描功能 -->
-    <context:component-scan base-package="com.hl.controller" />
-    <context:component-scan base-package="com.hl.service" />
+    <context:component-scan base-package="com.hl.controller"/>
+    <context:component-scan base-package="com.hl.service"/>
 
     <!-- 启动注解驱动的spring mvc 功能 -->
     <mvc:annotation-driven>
@@ -34,16 +34,16 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <bean class="com.hl.common.SpringExceptionResolver" />
+    <bean class="com.hl.common.SpringExceptionResolver"/>
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />-->
     <!--视图 json 文件下载....优先级别InternalResourceViewResolver高-->
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
 
-    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/" />
-        <property name="suffix" value=".jsp" />
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 </beans>

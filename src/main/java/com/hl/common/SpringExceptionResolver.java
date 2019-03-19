@@ -23,20 +23,20 @@ public class SpringExceptionResolver implements HandlerExceptionResolver {
         if (url.endsWith(".json")) {
             if (ex instanceof PermissionException || ex instanceof ParamException) {
                 JsonData result = JsonData.fail(ex.getMessage());
-                mv = new ModelAndView(Constant.JSON_VIEW, result.toMap());
+                mv = new ModelAndView("jsonView", result.toMap());
             } else {
                 log.error("unknown json exception, url:" + url, ex);
                 JsonData result = JsonData.fail(defaultMsg);
-                mv = new ModelAndView(Constant.JSON_VIEW, result.toMap());
+                mv = new ModelAndView("jsonView", result.toMap());
             }
         } else if (url.endsWith(".page")) { // 这里我们要求项目中所有请求page页面，都使用.page结尾
             log.error("unknown page exception, url:" + url, ex);
             JsonData result = JsonData.fail(defaultMsg);
-            mv = new ModelAndView(Constant.EXCEPTION, result.toMap());
+            mv = new ModelAndView("exception", result.toMap());
         } else {
             log.error("unknow exception, url:" + url, ex);
             JsonData result = JsonData.fail(defaultMsg);
-            mv = new ModelAndView(Constant.JSON_VIEW, result.toMap());
+            mv = new ModelAndView("exception", result.toMap());
         }
         return mv;
     }
