@@ -11,6 +11,10 @@
     <!-- 启动包扫描功能 -->
     <context:component-scan base-package="com.hl.controller"/>
     <context:component-scan base-package="com.hl.service"/>
+    
+    <mvc:interceptors>
+        <bean class="com.hl.common.HttpInterceptor" />
+    </mvc:interceptors>
 
     <!-- 启动注解驱动的spring mvc 功能 -->
     <mvc:annotation-driven>
