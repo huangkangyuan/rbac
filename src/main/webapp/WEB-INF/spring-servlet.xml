@@ -34,9 +34,12 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <bean class="com.hl.common.SpringExceptionResolver" />
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />-->
     <!--视图 json 文件下载....优先级别InternalResourceViewResolver高-->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />

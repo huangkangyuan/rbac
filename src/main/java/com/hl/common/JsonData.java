@@ -43,6 +43,13 @@ public class JsonData {
         return new JsonData(true);
     }
 
+
+     //public ModelAndView(String viewName, Map<String, ?> model) {
+     //		this.view = viewName;
+     //		if (model != null) {
+     //			getModelMap().addAllAttributes(model);
+     //		}
+     //	}
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<String, Object>();
         result.put("ret", ret);
