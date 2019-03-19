@@ -27,6 +27,7 @@ public class BeanValidator {
         if (validateResult.isEmpty()) {
             return Collections.emptyMap();
         } else {
+            //如果不为空的话，说明里面有错误信息
             LinkedHashMap errors = Maps.newLinkedHashMap();
             Iterator iterator = validateResult.iterator();
             while (iterator.hasNext()) {
@@ -40,7 +41,7 @@ public class BeanValidator {
     public static Map<String, String> validateList(Collection<?> collection) {
         Preconditions.checkNotNull(collection);
         Iterator iterator = collection.iterator();
-        Map errors;
+        Map<String,String> errors;
 
         do {
             if (!iterator.hasNext()) {
