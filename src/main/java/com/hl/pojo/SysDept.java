@@ -1,7 +1,16 @@
 package com.hl.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.Date;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class SysDept {
     private Integer id;
 
@@ -21,21 +30,21 @@ public class SysDept {
 
     private String operateIp;
 
-    public SysDept(Integer id, String name, Integer parentId, String level, Integer seq, String remark, String operator, Date operateTime, String operateIp) {
-        this.id = id;
-        this.name = name;
-        this.parentId = parentId;
-        this.level = level;
-        this.seq = seq;
-        this.remark = remark;
-        this.operator = operator;
-        this.operateTime = operateTime;
-        this.operateIp = operateIp;
-    }
+//    public SysDept(Integer id, String name, Integer parentId, String level, Integer seq, String remark, String operator, Date operateTime, String operateIp) {
+//        this.id = id;
+//        this.name = name;
+//        this.parentId = parentId;
+//        this.level = level;
+//        this.seq = seq;
+//        this.remark = remark;
+//        this.operator = operator;
+//        this.operateTime = operateTime;
+//        this.operateIp = operateIp;
+//    }
 
-    public SysDept() {
-        super();
-    }
+//    public SysDept() {
+//        super();
+//    }
 
     public Integer getId() {
         return id;
