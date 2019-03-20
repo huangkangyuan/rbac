@@ -21,13 +21,17 @@ public class SysDeptService {
 
     public void save(DeptParam param) {
         BeanValidator.check(param);
+        //技术组 1 --》前端 3 - 1
+        //        --》前端 3 - 1
         if(checkExist(param.getParentId(), param.getName(), param.getId())) {
             throw new ParamException("同一层级下存在相同名称的部门");
         }
         SysDept dept = SysDept.builder().name(param.getName()).parentId(param.getParentId())
                 .seq(param.getSeq()).remark(param.getRemark()).build();
 
+        //最后设置的level为0.1
         dept.setLevel(LevelUtil.calculateLevel(getLevel(param.getParentId()), param.getParentId()));
+
         dept.setOperator(RequestHolder.getCurrentUser().getUsername());
         dept.setOperateIp(IpUtil.getRemoteIp(RequestHolder.getCurrentRequest()));
         dept.setOperateTime(new Date());
@@ -40,6 +44,7 @@ public class SysDeptService {
 
 
     private String getLevel(Integer deptId) {
+        //deptId = 1 --> level == 0
         SysDept dept = sysDeptMapper.selectByPrimaryKey(deptId);
         if (dept == null) {
             return null;

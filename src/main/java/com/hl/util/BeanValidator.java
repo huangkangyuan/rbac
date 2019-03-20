@@ -64,6 +64,7 @@ public class BeanValidator {
 
     public static void check(Object param) throws ParamException {
         Map<String, String> map = BeanValidator.validateObject(param);
+        //如果不为空说明map里有错误信息
         if (MapUtils.isNotEmpty(map)) {
             throw new ParamException(map.toString());
         }
