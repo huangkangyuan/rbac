@@ -17,7 +17,7 @@ public class TestController {
         throw new RuntimeException("aaa");
     }
 
-    @RequestMapping("/tes1")
+    @RequestMapping("/test1")
     @ResponseBody
     public JsonData test1(){
         return new JsonData(true);

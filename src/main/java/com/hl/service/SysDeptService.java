@@ -40,8 +40,8 @@ public class SysDeptService {
         //最后设置的level为0.1
         dept.setLevel(LevelUtil.calculateLevel(getLevel(param.getParentId()), param.getParentId()));
 
-        dept.setOperator(RequestHolder.getCurrentUser().getUsername());
-        dept.setOperateIp(IpUtil.getRemoteIp(RequestHolder.getCurrentRequest()));
+        dept.setOperator("a");
+        dept.setOperateIp("aa");
         dept.setOperateTime(new Date());
         sysDeptMapper.insertSelective(dept);
     }
