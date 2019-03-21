@@ -8,8 +8,8 @@ import lombok.ToString;
 import java.util.Date;
 
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class SysDept {
     private Integer id;
@@ -29,22 +29,6 @@ public class SysDept {
     private Date operateTime;
 
     private String operateIp;
-
-//    public SysDept(Integer id, String name, Integer parentId, String level, Integer seq, String remark, String operator, Date operateTime, String operateIp) {
-//        this.id = id;
-//        this.name = name;
-//        this.parentId = parentId;
-//        this.level = level;
-//        this.seq = seq;
-//        this.remark = remark;
-//        this.operator = operator;
-//        this.operateTime = operateTime;
-//        this.operateIp = operateIp;
-//    }
-
-//    public SysDept() {
-//        super();
-//    }
 
     public Integer getId() {
         return id;

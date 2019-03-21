@@ -5,14 +5,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-@Component("applicationContextHelper")
+@Component
 public class ApplicationContextHelper implements ApplicationContextAware {
 
-    private static ApplicationContext applicationContext;
+    private static ApplicationContext applicationContext = null;
 
-    public void setApplicationContext(ApplicationContext context) throws BeansException {
-        applicationContext = context;
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
+
 
     public static <T> T getBean(Class<T> clazz) {
         if (applicationContext == null) {

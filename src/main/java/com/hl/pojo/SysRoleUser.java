@@ -1,7 +1,14 @@
 package com.hl.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysRoleUser {
     private Integer id;
 
@@ -14,19 +21,6 @@ public class SysRoleUser {
     private Date operateTime;
 
     private String operateIp;
-
-    public SysRoleUser(Integer id, Integer roleId, Integer userId, String operator, Date operateTime, String operateIp) {
-        this.id = id;
-        this.roleId = roleId;
-        this.userId = userId;
-        this.operator = operator;
-        this.operateTime = operateTime;
-        this.operateIp = operateIp;
-    }
-
-    public SysRoleUser() {
-        super();
-    }
 
     public Integer getId() {
         return id;

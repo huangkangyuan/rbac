@@ -1,7 +1,14 @@
 package com.hl.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysLog {
     private Integer id;
 
@@ -17,19 +24,9 @@ public class SysLog {
 
     private Integer status;
 
-    public SysLog(Integer id, Integer type, Integer targetId, String operator, Date operateTime, String operateIp, Integer status) {
-        this.id = id;
-        this.type = type;
-        this.targetId = targetId;
-        this.operator = operator;
-        this.operateTime = operateTime;
-        this.operateIp = operateIp;
-        this.status = status;
-    }
+    private String oldValue;
 
-    public SysLog() {
-        super();
-    }
+    private String newValue;
 
     public Integer getId() {
         return id;
@@ -85,5 +82,21 @@ public class SysLog {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getOldValue() {
+        return oldValue;
+    }
+
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
+    }
+
+    public String getNewValue() {
+        return newValue;
+    }
+
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
     }
 }

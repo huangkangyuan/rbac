@@ -1,7 +1,16 @@
 package com.hl.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = {"id"})
 public class SysAcl {
     private Integer id;
 
@@ -26,25 +35,6 @@ public class SysAcl {
     private Date operateTime;
 
     private String operateIp;
-
-    public SysAcl(Integer id, String code, String name, Integer aclModuleId, String url, Integer type, Integer status, Integer seq, String remark, String operator, Date operateTime, String operateIp) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.aclModuleId = aclModuleId;
-        this.url = url;
-        this.type = type;
-        this.status = status;
-        this.seq = seq;
-        this.remark = remark;
-        this.operator = operator;
-        this.operateTime = operateTime;
-        this.operateIp = operateIp;
-    }
-
-    public SysAcl() {
-        super();
-    }
 
     public Integer getId() {
         return id;

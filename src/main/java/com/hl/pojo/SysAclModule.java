@@ -1,7 +1,14 @@
 package com.hl.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysAclModule {
     private Integer id;
 
@@ -22,23 +29,6 @@ public class SysAclModule {
     private Date operateTime;
 
     private String operateIp;
-
-    public SysAclModule(Integer id, String name, Integer parentId, String level, Integer seq, Integer status, String remark, String operator, Date operateTime, String operateIp) {
-        this.id = id;
-        this.name = name;
-        this.parentId = parentId;
-        this.level = level;
-        this.seq = seq;
-        this.status = status;
-        this.remark = remark;
-        this.operator = operator;
-        this.operateTime = operateTime;
-        this.operateIp = operateIp;
-    }
-
-    public SysAclModule() {
-        super();
-    }
 
     public Integer getId() {
         return id;

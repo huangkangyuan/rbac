@@ -1,7 +1,14 @@
 package com.hl.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysRole {
     private Integer id;
 
@@ -18,21 +25,6 @@ public class SysRole {
     private Date operateTime;
 
     private String operateIp;
-
-    public SysRole(Integer id, String name, Integer type, Integer status, String remark, String operator, Date operateTime, String operateIp) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.status = status;
-        this.remark = remark;
-        this.operator = operator;
-        this.operateTime = operateTime;
-        this.operateIp = operateIp;
-    }
-
-    public SysRole() {
-        super();
-    }
 
     public Integer getId() {
         return id;

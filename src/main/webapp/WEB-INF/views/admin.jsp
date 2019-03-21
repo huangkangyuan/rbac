@@ -1,5 +1,5 @@
-<%@ page import="com.mmall.common.RequestHolder" %>
-<%@ page import="com.mmall.model.SysUser" %>
+<%@ page import="com.hl.common.RequestHolder" %>
+<%@ page import="com.hl.pojo.SysUser" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -139,7 +139,7 @@
 
                 <ul class="submenu">
                     <li class="">
-                        <a class="popstyle" href="/config/config.page" target="_blank">
+                        <a class="popstyle" href="/sys/user/noAuth.page" target="_blank">
                             <i class="menu-icon fa fa-caret-right"></i>
                             全局配置管理
                         </a>

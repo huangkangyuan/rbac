@@ -10,17 +10,6 @@
       <arg column="operate_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="operate_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
-    </constructor>
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.hl.pojo.SysLogWithBLOBs" >
-    <constructor >
-      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="type" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="target_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="operator" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="operate_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="operate_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="old_value" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
       <arg column="new_value" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
     </constructor>
@@ -31,7 +20,7 @@
   <sql id="Blob_Column_List" >
     old_value, new_value
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     ,
@@ -166,4 +155,43 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="countBySearchDto" parameterType="map" resultType="int">
+    SELECT count(1)
+    FROM sys_log
+    <include refid="queryConditions" />
+  </select>
+
+  <select id="getPageListBySearchDto" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />,
+    <include refid="Blob_Column_List" />
+    FROM sys_log
+    <include refid="queryConditions" />
+    ORDER BY operate_time DESC
+    limit #{page.offset}, #{page.pageSize}
+  </select>
+
+  <sql id="queryConditions">
+    <where>
+      <if test="dto.type != null">
+        AND type = #{dto.type}
+      </if>
+      <if test="dto.beforeSeg != null and dto.beforeSeg != ''">
+        AND old_value like #{dto.beforeSeg}
+      </if>
+      <if test="dto.afterSeg != null and dto.afterSeg != ''">
+        AND new_value like #{dto.afterSeg}
+      </if>
+      <if test="dto.operator != null and dto.operator != ''">
+        AND operator like #{dto.operator}
+      </if>
+      <if test="dto.fromTime != null">
+        AND operate_time &gt;= #{dto.fromTime}
+      </if>
+      <if test="dto.toTime != null">
+        AND operate_time &lt;= #{dto.toTime}
+      </if>
+    </where>
+  </sql>
 </mapper>

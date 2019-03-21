@@ -22,7 +22,6 @@ public class SysDeptController {
 
     @Resource
     private SysDeptService sysDeptService;
-
     @Resource
     private SysTreeService sysTreeService;
 
@@ -48,7 +47,6 @@ public class SysDeptController {
     @RequestMapping("/update.json")
     @ResponseBody
     public JsonData updateDept(DeptParam param) {
-        //更新一个部门也要把这个部门下的所有子部门都更新
         sysDeptService.update(param);
         return JsonData.success();
     }
@@ -59,4 +57,5 @@ public class SysDeptController {
         sysDeptService.delete(id);
         return JsonData.success();
     }
+
 }
